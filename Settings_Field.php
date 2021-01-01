@@ -230,4 +230,13 @@ class Settings_Field {
 	public function get_input_label(): string {
 		return $this->input_field->get_label();
 	}
+
+	/**
+	 * Returns the defined inputs, defualt value.
+	 *
+	 * @return void
+	 */
+	public function get_input_default() {
+		return $this->input_field->get_default();
+	}
 }

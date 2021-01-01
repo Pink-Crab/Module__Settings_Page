@@ -215,4 +215,11 @@ class Test_Settings_Field extends WP_UnitTestCase {
 		$field = new Settings_Field( 'test_option' );
 		$this->assertEquals( 'test_option', $field->get_option_key() );
 	}
+
+	public function test_get_input_default(): void {
+		$input = Input_Text::create( 'field_key', 'Test Field' )
+			->default( 'HI' );
+		$field = Settings_Field::from_field( $input );
+		$this->assertEquals( 'HI', $field->get_input_default() );
+	}
 }
