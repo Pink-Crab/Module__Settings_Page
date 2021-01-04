@@ -103,7 +103,7 @@ final class Settings_Group {
 	 * @return self
 	 */
 	public function add_field( Settings_Field $field ): self {
-		$field->set_current_input_value( \get_option( $field->get_option_key() ?? $field->get_default() ) );
+		$field->set_current_input_value( \get_option( $field->get_option_key(), $field->get_input_default() ) );
 		$this->fields[ $field->get_option_key() ] = $field;
 		return $this;
 	}
