@@ -108,7 +108,7 @@ abstract class Settings_Page implements Registerable {
 		$loader->admin_action( 'admin_menu', array( $this, 'register_page' ) );
 
 		// Enqueues and custom css or js files.
-		$loader->admin_action( 'admin_enqueue_scripts', array( $this, 'maybe_enqueue' ) );
+		$loader->action( 'admin_enqueue_scripts', array( $this, 'maybe_enqueue' ) );
 	}
 
 	/**
