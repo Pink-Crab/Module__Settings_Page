@@ -26,7 +26,7 @@ namespace PinkCrab\Settings_Pages;
 
 use Exception;
 use TypeError;
-use PinkCrab\Modules\Form_Fields\Fields\Abstract_Field;
+use PinkCrab\Form_Fields\Abstract_Field;
 
 class Settings_Field {
 
@@ -78,7 +78,7 @@ class Settings_Field {
 	/**
 	 * Creates a setting field from a Input Field object.
 	 *
-	 * @param \PinkCrab\Modules\Form_Fields\Fields\Abstract_Field $field
+	 * @param \PinkCrab\Form_Fields\Abstract_Field $field
 	 * @return self
 	 */
 	public static function from_field( Abstract_Field $field ): self {

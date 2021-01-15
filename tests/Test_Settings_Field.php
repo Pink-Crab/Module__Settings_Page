@@ -17,7 +17,7 @@ use Exception;
 use TypeError;
 use WP_UnitTestCase;
 use PinkCrab\Settings_Pages\Settings_Field;
-use PinkCrab\Modules\Form_Fields\Fields\Input_Text;
+use PinkCrab\Form_Fields\Abstract_Field\Fields\Input_Text;
 
 class Test_Settings_Field extends WP_UnitTestCase {
 

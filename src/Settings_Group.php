@@ -26,7 +26,7 @@ namespace PinkCrab\Settings_Pages;
 
 use PinkCrab\Core\Interfaces\Registerable;
 use PinkCrab\Core\Services\Registration\Loader;
-use PinkCrab\Modules\Form_Fields\Fields\Abstract_Field;
+use PinkCrab\Form_Fields\Abstract_Field;
 
 
 final class Settings_Group {

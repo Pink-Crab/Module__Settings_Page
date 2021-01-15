@@ -7,7 +7,7 @@ namespace PinkCrab\My_Plugin\Settings_Pages;
 use PinkCrab\Settings_Pages\Settings_Page;
 use PinkCrab\Settings_Pages\Settings_Field;
 use PinkCrab\Settings_Pages\Settings_Group;
-use PinkCrab\Modules\Form_Fields\Fields\Input_Text;
+use PinkCrab\Form_Fields\Abstract_Field\Fields\Input_Text;
 use PinkCrab\Settings_Pages\Settings_Collection;
 
 class My_Settings extends Settings_Page {

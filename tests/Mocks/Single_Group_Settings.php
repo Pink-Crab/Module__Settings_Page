@@ -8,7 +8,7 @@ use PinkCrab\Core\Services\Registration\Loader;
 use PinkCrab\Settings_Pages\Settings_Page;
 use PinkCrab\Settings_Pages\Settings_Field;
 use PinkCrab\Settings_Pages\Settings_Group;
-use PinkCrab\Modules\Form_Fields\Fields\Input_Text;
+use PinkCrab\Form_Fields\Abstract_Field\Fields\Input_Text;
 use PinkCrab\Settings_Pages\Settings_Collection;
 
 class Single_Group_Settings extends Settings_Page {
