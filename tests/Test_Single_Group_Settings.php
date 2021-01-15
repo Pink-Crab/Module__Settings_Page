@@ -8,15 +8,15 @@ declare(strict_types=1);
  * @since 0.1.0
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\Modules\Settings_Page
+ * @package PinkCrab\Settings_Pages
  */
 
-namespace PinkCrab\Modules\Settings_Page\Tests;
+namespace PinkCrab\Settings_Pages\Tests;
 
 use WP_UnitTestCase;
 use PinkCrab\Core\Services\Registration\Loader;
-use PinkCrab\Modules\Settings_Page\Settings_Page;
-use PinkCrab\Modules\Settings_Page\Tests\Mocks\Single_Group_Settings;
+use PinkCrab\Settings_Pages\Settings_Page;
+use PinkCrab\Settings_Pages\Tests\Mocks\Single_Group_Settings;
 
 require_once 'Mocks/Single_Group_Settings.php';
 

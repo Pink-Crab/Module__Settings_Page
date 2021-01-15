@@ -8,16 +8,16 @@ declare(strict_types=1);
  * @since 0.1.0
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\Modules\Settings_Page
+ * @package PinkCrab\Settings_Pages
  */
 
-namespace PinkCrab\Modules\Settings_Page\Tests;
+namespace PinkCrab\Settings_Pages\Tests;
 
 use Exception;
 use TypeError;
 use WP_UnitTestCase;
-use PinkCrab\Modules\Settings_Page\Settings_Field;
-use PinkCrab\Modules\Settings_Page\Settings_Group;
+use PinkCrab\Settings_Pages\Settings_Field;
+use PinkCrab\Settings_Pages\Settings_Group;
 use PinkCrab\Modules\Form_Fields\Fields\Input_Text;
 
 class Test_Settings_Group extends WP_UnitTestCase {

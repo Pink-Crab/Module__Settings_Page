@@ -19,15 +19,15 @@ declare(strict_types=1);
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\Modules\Settings_Page
+ * @package PinkCrab\Settings_Pages
  */
 
-namespace PinkCrab\Modules\Settings_Page;
+namespace PinkCrab\Settings_Pages;
 
 use PinkCrab\Core\Interfaces\Registerable;
 use PinkCrab\Core\Services\Registration\Loader;
-use PinkCrab\Modules\Settings_Page\Settings_Group;
-use PinkCrab\Modules\Settings_Page\Settings_Collection;
+use PinkCrab\Settings_Pages\Settings_Group;
+use PinkCrab\Settings_Pages\Settings_Collection;
 
 abstract class Settings_Page implements Registerable {
 
@@ -114,7 +114,7 @@ abstract class Settings_Page implements Registerable {
 	/**
 	 * Allows the adding of settings.
 	 *
-	 * @param \PinkCrab\Modules\Settings_Page\Settings_Collection $settings
+	 * @param \PinkCrab\Settings_Pages\Settings_Collection $settings
 	 * @return void
 	 */
 	protected function add_settings( Settings_Collection $settings ): void{}

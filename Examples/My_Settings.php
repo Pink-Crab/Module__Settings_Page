@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PinkCrab\My_Plugin\Settings_Pages;
 
-use PinkCrab\Modules\Settings_Page\Settings_Page;
-use PinkCrab\Modules\Settings_Page\Settings_Field;
-use PinkCrab\Modules\Settings_Page\Settings_Group;
+use PinkCrab\Settings_Pages\Settings_Page;
+use PinkCrab\Settings_Pages\Settings_Field;
+use PinkCrab\Settings_Pages\Settings_Group;
 use PinkCrab\Modules\Form_Fields\Fields\Input_Text;
-use PinkCrab\Modules\Settings_Page\Settings_Collection;
+use PinkCrab\Settings_Pages\Settings_Collection;
 
 class My_Settings extends Settings_Page {
 
@@ -22,7 +22,7 @@ class My_Settings extends Settings_Page {
 	/**
 	 * Register our groups of settings.
 	 *
-	 * @param \PinkCrab\Modules\Settings_Page\Settings_Collection $settings
+	 * @param \PinkCrab\Settings_Pages\Settings_Collection $settings
 	 * @return void
 	 */
 	protected function add_settings( Settings_Collection $settings ): void {
@@ -34,7 +34,7 @@ class My_Settings extends Settings_Page {
 	 * Registers our api settings.
 	 * The whole registation is done as chained call.
 	 *
-	 * @return \PinkCrab\Modules\Settings_Page\Settings_Group
+	 * @return \PinkCrab\Settings_Pages\Settings_Group
 	 */
 	protected function api_settings_group(): Settings_Group {
 		return Settings_Group::create(
@@ -66,7 +66,7 @@ class My_Settings extends Settings_Page {
 	 * Registers our email settings.
 	 * This is done as seperate variables.
 	 *
-	 * @return \PinkCrab\Modules\Settings_Page\Settings_Group
+	 * @return \PinkCrab\Settings_Pages\Settings_Group
 	 */
 	protected function email_settings_group(): Settings_Group {
 
