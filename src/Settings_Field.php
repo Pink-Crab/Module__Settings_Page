@@ -54,7 +54,7 @@ class Settings_Field {
 	/**
 	 * Defines if shown in rest or not.
 	 *
-	 * @var bool|array
+	 * @var bool|array<string, array|string>
 	 */
 	protected $show_in_rest = true;
 
@@ -157,7 +157,7 @@ class Settings_Field {
 	/**
 	 * Set defines if shown in rest or not.
 	 *
-	 * @param bool|array $show_in_rest  Defines if shown in rest or not.
+	 * @param bool|array<string, array|string> $show_in_rest  Defines if shown in rest or not.
 	 * @return self
 	 * @throws TypeError.
 	 */
@@ -198,7 +198,7 @@ class Settings_Field {
 	/**
 	 * Get defines if shown in rest or not.
 	 *
-	 * @return bool|array
+	 * @return bool|array<string, array|string>
 	 */
 	public function get_show_in_rest() {
 		return $this->show_in_rest;
@@ -234,7 +234,7 @@ class Settings_Field {
 	/**
 	 * Returns the defined inputs, defualt value.
 	 *
-	 * @return void
+	 * @return mixed
 	 */
 	public function get_input_default() {
 		return $this->input_field->get_default();

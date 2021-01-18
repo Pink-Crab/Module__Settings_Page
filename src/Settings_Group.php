@@ -24,9 +24,9 @@ declare(strict_types=1);
 
 namespace PinkCrab\Settings_Pages;
 
+use PinkCrab\Form_Fields\Abstract_Field;
 use PinkCrab\Core\Interfaces\Registerable;
 use PinkCrab\Core\Services\Registration\Loader;
-use PinkCrab\Form_Fields\Abstract_Field;
 
 
 final class Settings_Group {
@@ -141,10 +141,10 @@ final class Settings_Group {
 				$this->page_slug,
 				$field->get_option_key(),
 				array(
-					'sanitize_callback' => $field->get_santization_callback() ?? '',
-					'show_in_rest'      => $field->get_show_in_rest() ?? true,
-					'type'              => $field->get_type() ?? 'string',
-					'default'           => $field->get_input_field()->get_default() ?? '',
+					'sanitize_callback' => $field->get_santization_callback(),
+					'show_in_rest'      => $field->get_show_in_rest(),
+					'type'              => $field->get_type(),
+					'default'           => $field->get_input_field()->get_default(),
 				)
 			);
 		}

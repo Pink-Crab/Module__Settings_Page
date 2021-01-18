@@ -14,11 +14,10 @@ declare(strict_types=1);
 namespace PinkCrab\Settings_Pages\Tests;
 
 use WP_UnitTestCase;
-use PinkCrab\Core\Services\Registration\Loader;
 use PinkCrab\Settings_Pages\Settings_Page;
+use PinkCrab\Core\Services\Registration\Loader;
 use PinkCrab\Settings_Pages\Tests\Mocks\Single_Group_Settings;
 
-require_once 'Mocks/Single_Group_Settings.php';
 
 class Test_Single_Group_Settings extends WP_UnitTestCase {
 

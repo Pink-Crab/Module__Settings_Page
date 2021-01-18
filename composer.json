@@ -44,6 +44,7 @@
         "pinkcrab/plugin-framework": "^0.3.0"
     },
     "scripts": {
-        "test": "phpunit"
+        "test": "phpunit",
+        "analyse": "vendor/bin/phpstan analyse src -l8"
     }
 }
