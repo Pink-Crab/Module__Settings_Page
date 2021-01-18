@@ -16,8 +16,9 @@ namespace PinkCrab\Settings_Pages\Tests;
 use Exception;
 use TypeError;
 use WP_UnitTestCase;
+use PinkCrab\PHPUnit_Helpers\Objects;
+use PinkCrab\Form_Fields\Fields\Input_Text;
 use PinkCrab\Settings_Pages\Settings_Field;
-use PinkCrab\Form_Fields\Abstract_Field\Fields\Input_Text;
 
 class Test_Settings_Field extends WP_UnitTestCase {
 
@@ -39,10 +40,10 @@ class Test_Settings_Field extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function test_can_set_and_get_input_filed(): void {
-		$input = Input_Text::create( 'field_key', 'Test Field' );
+		$input = Input_Text::create( 'field_key' )->label( 'Test Field' );
 		$field = new Settings_Field( 'test_option' );
 		$field->input_field( $input );
-		$this->assertSame( $input, \_getPrivateProperty( $field, 'input_field' ) );
+		$this->assertSame( $input, Objects::get_private_property( $field, 'input_field' ) );
 		$this->assertSame( $input, $field->get_input_field() );
 	}
 
@@ -52,7 +53,7 @@ class Test_Settings_Field extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function test_can_be_created_from_field(): void {
-		$input = Input_Text::create( 'field_key', 'Test Field' );
+		$input = Input_Text::create( 'field_key' )->label( 'Test Field' );
 		$field = Settings_Field::from_field( $input );
 		$this->assertInstanceOf( Settings_Field::class, $field );
 		$this->assertEquals( 'field_key', $field->get_option_key() );
@@ -66,9 +67,9 @@ class Test_Settings_Field extends WP_UnitTestCase {
 	 */
 	public function test_default_values() {
 		$field = new Settings_Field( 'test_option' );
-		$this->assertSame( '', \_getPrivateProperty( $field, 'santization_callback' ) );
-		$this->assertSame( 'string', \_getPrivateProperty( $field, 'type' ) );
-		$this->assertSame( true, \_getPrivateProperty( $field, 'show_in_rest' ) );
+		$this->assertSame( '', Objects::get_private_property( $field, 'santization_callback' ) );
+		$this->assertSame( 'string', Objects::get_private_property( $field, 'type' ) );
+		$this->assertSame( true, Objects::get_private_property( $field, 'show_in_rest' ) );
 	}
 
 	/**
@@ -85,12 +86,12 @@ class Test_Settings_Field extends WP_UnitTestCase {
 			return (string) 123;
 		};
 		$field->santization_callback( $function );
-		$this->assertSame( $function, \_getPrivateProperty( $field, 'santization_callback' ) );
+		$this->assertSame( $function, Objects::get_private_property( $field, 'santization_callback' ) );
 		$this->assertSame( $function, $field->get_santization_callback() );
 
 		// With string.
 		$field->santization_callback( 'test' );
-		$this->assertSame( 'test', \_getPrivateProperty( $field, 'santization_callback' ) );
+		$this->assertSame( 'test', Objects::get_private_property( $field, 'santization_callback' ) );
 		$this->assertSame( 'test', $field->get_santization_callback() );
 	}
 
@@ -117,12 +118,12 @@ class Test_Settings_Field extends WP_UnitTestCase {
 
 		// As bool
 		$field->show_in_rest( false );
-		$this->assertFalse( \_getPrivateProperty( $field, 'show_in_rest' ) );
+		$this->assertFalse( Objects::get_private_property( $field, 'show_in_rest' ) );
 		$this->assertFalse( $field->get_show_in_rest() );
 
 		// As array
 		$field->show_in_rest( array( '1' ) );
-		$this->assertTrue( is_array( \_getPrivateProperty( $field, 'show_in_rest' ) ) );
+		$this->assertTrue( is_array( Objects::get_private_property( $field, 'show_in_rest' ) ) );
 		$this->assertTrue( is_array( $field->get_show_in_rest() ) );
 	}
 
@@ -147,7 +148,7 @@ class Test_Settings_Field extends WP_UnitTestCase {
 	public function test_can_set_expected_type(): void {
 		$field = new Settings_Field( 'test_option' );
 		$field->type( 'number' );
-		$this->assertEquals( 'number', \_getPrivateProperty( $field, 'type' ) );
+		$this->assertEquals( 'number', Objects::get_private_property( $field, 'type' ) );
 		$this->assertEquals( 'number', $field->get_type() );
 
 	}
@@ -187,7 +188,7 @@ class Test_Settings_Field extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function test_can_set_input_value(): void {
-		$input = Input_Text::create( 'field_key', 'Test Field' );
+		$input = Input_Text::create( 'field_key' )->label( 'Test Field' );
 
 		$field = Settings_Field::from_field( $input );
 		$field->set_current_input_value( 'CURRENT' );
@@ -201,7 +202,7 @@ class Test_Settings_Field extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function test_can_get_input_field(): void {
-		$input = Input_Text::create( 'field_key', 'Test Field' );
+		$input = Input_Text::create( 'field_key' )->label( 'Test Field' );
 		$field = Settings_Field::from_field( $input );
 		$this->assertEquals( 'Test Field', $field->get_input_label() );
 	}
@@ -217,7 +218,7 @@ class Test_Settings_Field extends WP_UnitTestCase {
 	}
 
 	public function test_get_input_default(): void {
-		$input = Input_Text::create( 'field_key', 'Test Field' )
+		$input = Input_Text::create( 'field_key' )->label( 'Test Field' )
 			->default( 'HI' );
 		$field = Settings_Field::from_field( $input );
 		$this->assertEquals( 'HI', $field->get_input_default() );

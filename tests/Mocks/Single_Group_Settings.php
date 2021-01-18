@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PinkCrab\Settings_Pages\Tests\Mocks;
 
-use PinkCrab\Core\Services\Registration\Loader;
 use PinkCrab\Settings_Pages\Settings_Page;
+use PinkCrab\Form_Fields\Fields\Input_Text;
 use PinkCrab\Settings_Pages\Settings_Field;
 use PinkCrab\Settings_Pages\Settings_Group;
-use PinkCrab\Form_Fields\Abstract_Field\Fields\Input_Text;
+use PinkCrab\Core\Services\Registration\Loader;
 use PinkCrab\Settings_Pages\Settings_Collection;
 
 class Single_Group_Settings extends Settings_Page {
@@ -36,14 +36,14 @@ class Single_Group_Settings extends Settings_Page {
 			->description( 'GROUP DESCRIPTION' )
 			->add_field(
 				Settings_Field::from_field(
-					Input_Text::create( 'single_test_string', 'STRING INPUT' )
+					Input_Text::create( 'single_test_string' )->label( 'STRING INPUT' )
 				)
 				->type( 'string' )
 				->santization_callback( 'sanitize_text_field' )
 			)
 			->add_field(
 				Settings_Field::from_field(
-					Input_Text::create( 'single_test_int', 'INT INPUT' )
+					Input_Text::create( 'single_test_int' )->label( 'INT INPUT' )
 				)
 				->type( 'number' )
 				->santization_callback( 'intval' )

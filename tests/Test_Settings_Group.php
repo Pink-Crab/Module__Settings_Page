@@ -16,9 +16,10 @@ namespace PinkCrab\Settings_Pages\Tests;
 use Exception;
 use TypeError;
 use WP_UnitTestCase;
+use PinkCrab\PHPUnit_Helpers\Objects;
+use PinkCrab\Form_Fields\Fields\Input_Text;
 use PinkCrab\Settings_Pages\Settings_Field;
 use PinkCrab\Settings_Pages\Settings_Group;
-use PinkCrab\Form_Fields\Abstract_Field\Fields\Input_Text;
 
 class Test_Settings_Group extends WP_UnitTestCase {
 
@@ -31,9 +32,9 @@ class Test_Settings_Group extends WP_UnitTestCase {
 	public function test_can_create_using_constructor(): void {
 		$group = new Settings_Group( 'key', 'label', 'slug' );
 		$this->assertInstanceOf( Settings_Group::class, $group );
-		$this->assertEquals( 'key', \_getPrivateProperty( $group, 'group_key' ) );
-		$this->assertEquals( 'label', \_getPrivateProperty( $group, 'group_label' ) );
-		$this->assertEquals( 'slug', \_getPrivateProperty( $group, 'page_slug' ) );
+		$this->assertEquals( 'key', Objects::get_private_property( $group, 'group_key' ) );
+		$this->assertEquals( 'label', Objects::get_private_property( $group, 'group_label' ) );
+		$this->assertEquals( 'slug', Objects::get_private_property( $group, 'page_slug' ) );
 	}
 
 	/**
@@ -45,9 +46,9 @@ class Test_Settings_Group extends WP_UnitTestCase {
 	public function test_can_construct_with_static_create(): void {
 		$group = Settings_Group::create( 'key', 'label', 'slug' );
 		$this->assertInstanceOf( Settings_Group::class, $group );
-		$this->assertEquals( 'key', \_getPrivateProperty( $group, 'group_key' ) );
-		$this->assertEquals( 'label', \_getPrivateProperty( $group, 'group_label' ) );
-		$this->assertEquals( 'slug', \_getPrivateProperty( $group, 'page_slug' ) );
+		$this->assertEquals( 'key', Objects::get_private_property( $group, 'group_key' ) );
+		$this->assertEquals( 'label', Objects::get_private_property( $group, 'group_label' ) );
+		$this->assertEquals( 'slug', Objects::get_private_property( $group, 'page_slug' ) );
 	}
 
 	/**
@@ -81,7 +82,7 @@ class Test_Settings_Group extends WP_UnitTestCase {
 	public function test_can_set_group_description(): void {
 		$group = Settings_Group::create( 'key', 'label', 'slug' );
 		$group->description( 'ADDED DESCRIPTION' );
-		$this->assertEquals( 'ADDED DESCRIPTION', \_getPrivateProperty( $group, 'group_description' ) );
+		$this->assertEquals( 'ADDED DESCRIPTION', Objects::get_private_property( $group, 'group_description' ) );
 	}
 
 	/**
@@ -92,14 +93,14 @@ class Test_Settings_Group extends WP_UnitTestCase {
 	 */
 	public function test_can_add_field_to_group(): void {
 		// Create input & field
-		$input = Input_Text::create( 'field_key', 'Test Field' );
+		$input = Input_Text::create( 'field_key')->label('Test Field' );
 		$field = Settings_Field::from_field( $input );
 
 		$group = Settings_Group::create( 'key', 'label', 'slug' );
 		$group->add_field( $field );
 
-		$this->assertCount( 1, \_getPrivateProperty( $group, 'fields' ) );
-		$this->assertInstanceOf( Settings_Field::class, \_getPrivateProperty( $group, 'fields' )['field_key'] );
+		$this->assertCount( 1, Objects::get_private_property( $group, 'fields' ) );
+		$this->assertInstanceOf( Settings_Field::class, Objects::get_private_property( $group, 'fields' )['field_key'] );
 	}
 
 	/**
@@ -114,7 +115,7 @@ class Test_Settings_Group extends WP_UnitTestCase {
 		// Ensure option is empty.
 		\delete_option( $option_key );
 
-		$input = Input_Text::create( $option_key, 'Test Field' )
+		$input = Input_Text::create( $option_key)->label('Test Field' )
 			->default( 'DEFAULT' );
 		$field = Settings_Field::from_field( $input );
 
@@ -122,7 +123,7 @@ class Test_Settings_Group extends WP_UnitTestCase {
 		$group->add_field( $field );
 
 		// Get field from group.
-		$field_from = \_getPrivateProperty( $group, 'fields' )[ $option_key ];
+		$field_from = Objects::get_private_property( $group, 'fields' )[ $option_key ];
 
 		$this->assertEquals( 'DEFAULT', $field_from->get_input_field()->get_current() );
 	}
