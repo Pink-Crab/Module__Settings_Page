@@ -21,7 +21,7 @@ We have made no changes to how this works from V0.1.*, but we have now moved to 
 ## Install ##
 
 ````bash
-composer require pinkcrab/settings_page
+composer require pinkcrab/settings_pages
 ````
 
 ## Why? ##
