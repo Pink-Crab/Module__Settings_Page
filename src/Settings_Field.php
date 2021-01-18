@@ -19,14 +19,14 @@ declare(strict_types=1);
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\Modules\Settings_Page
+ * @package PinkCrab\Settings_Pages
  */
 
-namespace PinkCrab\Modules\Settings_Page;
+namespace PinkCrab\Settings_Pages;
 
 use Exception;
 use TypeError;
-use PinkCrab\Modules\Form_Fields\Fields\Abstract_Field;
+use PinkCrab\Form_Fields\Abstract_Field;
 
 class Settings_Field {
 
@@ -54,7 +54,7 @@ class Settings_Field {
 	/**
 	 * Defines if shown in rest or not.
 	 *
-	 * @var bool|array
+	 * @var bool|array<string, array|string>
 	 */
 	protected $show_in_rest = true;
 
@@ -78,7 +78,7 @@ class Settings_Field {
 	/**
 	 * Creates a setting field from a Input Field object.
 	 *
-	 * @param \PinkCrab\Modules\Form_Fields\Fields\Abstract_Field $field
+	 * @param \PinkCrab\Form_Fields\Abstract_Field $field
 	 * @return self
 	 */
 	public static function from_field( Abstract_Field $field ): self {
@@ -157,7 +157,7 @@ class Settings_Field {
 	/**
 	 * Set defines if shown in rest or not.
 	 *
-	 * @param bool|array $show_in_rest  Defines if shown in rest or not.
+	 * @param bool|array<string, array|string> $show_in_rest  Defines if shown in rest or not.
 	 * @return self
 	 * @throws TypeError.
 	 */
@@ -198,7 +198,7 @@ class Settings_Field {
 	/**
 	 * Get defines if shown in rest or not.
 	 *
-	 * @return bool|array
+	 * @return bool|array<string, array|string>
 	 */
 	public function get_show_in_rest() {
 		return $this->show_in_rest;
@@ -234,7 +234,7 @@ class Settings_Field {
 	/**
 	 * Returns the defined inputs, defualt value.
 	 *
-	 * @return void
+	 * @return mixed
 	 */
 	public function get_input_default() {
 		return $this->input_field->get_default();

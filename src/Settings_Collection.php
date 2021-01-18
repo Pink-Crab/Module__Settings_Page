@@ -19,10 +19,10 @@ declare(strict_types=1);
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\Modules\Settings_Page
+ * @package PinkCrab\Settings_Pages
  */
 
-namespace PinkCrab\Modules\Settings_Page;
+namespace PinkCrab\Settings_Pages;
 
 use PinkCrab\Core\Collection\Collection;
 
@@ -47,7 +47,7 @@ final class Settings_Collection extends Collection {
 	 */
 	public function register(): void {
 		$this->each(
-			function( $e ) {
+			function( Settings_Group $e ) {
 				$e->register_group();
 			}
 		);
